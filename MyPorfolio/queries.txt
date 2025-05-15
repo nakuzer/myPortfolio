@@ -1,0 +1,60 @@
+CREATE DATABASE IF NOT EXISTS portfolio_db;
+USE portfolio_db;
+
+CREATE TABLE IF NOT EXISTS skills (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   name VARCHAR(255) NOT NULL,
+   category VARCHAR(50) NOT NULL,
+   progress INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS projects (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   title VARCHAR(255) NOT NULL,
+   description TEXT NOT NULL,
+   image VARCHAR(255),
+   tags TEXT,
+   link VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS users (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   username VARCHAR(50) NOT NULL UNIQUE,
+   password VARCHAR(255) NOT NULL,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE contact (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   name VARCHAR(100) NOT NULL,
+   email VARCHAR(100) NOT NULL,
+   subject VARCHAR(200) NOT NULL,
+   message TEXT NOT NULL,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO skills (name, category, progress) VALUES 
+('HTML/CSS', 'Programming', 70),
+('PHP', 'Programming', 40),
+('JavaScript', 'Programming', 20),
+('MySQL', 'Programming', 75),
+('Python', 'Programming', 67),
+('Java', 'Programming', 12);
+
+INSERT INTO projects (title, description, image, tags, link) VALUES 
+(
+   'DriveEase', 
+   'At DriveEase, we specialize in offering a premium car buying experience for discerning clients across the Zamboanga Peninsula and beyond. Recognized as a top-tier car seller in the region, we have become the trusted choice of VIPs, executives, and businesses seeking reliable, stylish, and luxurious vehicles.', 
+   'driveease.png', 
+   'HTML/CSS,JS,MYSQL,PHP', 
+   'https://drive-ease.free.nf/index.php'
+),
+(
+    'DriveEase', 
+   'At DriveEase, we specialize in offering a premium car buying experience for discerning clients across the Zamboanga Peninsula and beyond. Recognized as a top-tier car seller in the region, we have become the trusted choice of VIPs, executives, and businesses seeking reliable, stylish, and luxurious vehicles.', 
+   'Attendance.png', 
+   'HTML/CSS,JS,MYSQL,PHP', 
+   ''
+);
+
+
+
